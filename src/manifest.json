@@ -2,7 +2,7 @@
 	"manifest_version": 3,
 	"name": "Remove AI Slop from Steam",
 	"short_name": "No Steam AI Slop",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "Hide/blur/label Steam games that disclose AI-generated content.",
 	"homepage_url": "https://github.com/mewiof/remove-ai-slop-from-steam",
 	"icons": {

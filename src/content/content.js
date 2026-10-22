@@ -535,6 +535,56 @@
 		return box;
 	}
 
+	const ISSUES =
+		"https://github.com/mewiof/remove-ai-slop-from-steam/issues/new";
+
+	// a GitHub issue filled in with everything
+	function reportUrl(appid, v) {
+		const d = describe(v);
+		let version = "?";
+		try {
+			version = ext.runtime.getManifest().version;
+		} catch (e) {
+			// extension reloaded under the page
+		}
+		const notes =
+			v.notes.length > 1500 ? v.notes.slice(0, 1500) + "..." : v.notes;
+		const body = [
+			"Game: https://store.steampowered.com/app/" + appid + "/",
+			"Extension says: " + d.head + (d.kinds ? " (" + d.kinds + ")" : ""),
+			"Extension version: " + version,
+			"What is wrong: ",
+			"",
+			"Developer's disclosure:",
+			notes
+				.split(/\r?\n/)
+				.map((l) => "> " + l)
+				.join("\n"),
+		].join("\n");
+		const title = "False detection: " + gameName() + " (" + appid + ")";
+		return (
+			ISSUES +
+			"?title=" +
+			encodeURIComponent(title) +
+			"&body=" +
+			encodeURIComponent(body)
+		);
+	}
+
+	function reportLink(appid, v) {
+		const a = document.createElement("a");
+		a.className = "report";
+		a.target = "_blank";
+		a.rel = "noopener";
+		a.textContent = "False detection? Report it";
+		a.href = reportUrl(appid, v);
+		// name may only be known by now
+		a.addEventListener("click", () => {
+			a.href = reportUrl(appid, v);
+		});
+		return a;
+	}
+
 	function makeGate(appid, v) {
 		const { host, root } = shadowHost("aislop-gate");
 		const d = describe(v);
@@ -564,6 +614,7 @@
 				if (history.length > 1) history.back();
 				else location.href = "https://store.steampowered.com/";
 			}),
+			reportLink(appid, v),
 		);
 		const foot = document.createElement("p");
 		foot.className = "foot";
@@ -598,7 +649,8 @@
 		details.append(sum, disclosureBlock(v));
 		const actions = document.createElement("div");
 		actions.className = "row";
-		actions.appendChild(
+		actions.append(
+			reportLink(appid, v),
 			button("Always show this game", "", () =>
 				Settings.allow(appid, gameName()).catch(() => {}),
 			),
@@ -682,7 +734,10 @@ h1 { margin: 0 0 4px; font-size: 24px; line-height: 1.2; color: #fff; font-weigh
 .notes { margin: 0 0 20px; }
 .notes-head { font-size: 12px; text-transform: uppercase; letter-spacing: 0.04em; color: #8f98a0; margin-bottom: 6px; }
 blockquote { margin: 0; padding: 10px 12px; max-height: 240px; overflow: auto; white-space: pre-wrap; background: rgba(0, 0, 0, 0.25); border-left: 3px solid #3d4450; color: #c7d5e0; }
-.row { display: flex; flex-wrap: wrap; gap: 8px; }
+.row { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+a.report { margin-left: auto; color: #66c0f4; font-size: 13px; text-decoration: none; }
+a.report:hover { text-decoration: underline; }
+.banner a.report { margin: 0 8px 0 0; }
 .foot { margin: 16px 0 0; font-size: 12px; color: #67707b; }
 .banner { display: grid; grid-template-columns: 1fr auto; gap: 8px 16px; align-items: center; margin: 12px 0; padding: 10px 14px; background: #1b2838; border-left: 4px solid #e5484d; border-radius: 3px; font: 14px/1.4 "Motiva Sans", Arial, sans-serif; color: #c7d5e0; }
 .banner.level-2 { border-left-color: #f5a524; }

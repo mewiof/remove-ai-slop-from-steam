@@ -1,6 +1,6 @@
 {
 	"name": "remove-ai-slop-from-steam",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"private": true,
 	"license": "MIT",
 	"description": "Browser extension that hides/blurs/labels Steam games with an AI Generated Content Disclosure",

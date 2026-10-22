@@ -33,6 +33,12 @@ body {
 	margin: 0 auto;
 	padding: 14px 16px 12px;
 }
+/* small phones (Firefox for Android opens this as a page). Not Extendium */
+@media (max-width: 359px) and (pointer: coarse) {
+	#app {
+		width: auto;
+	}
+}
 
 header {
 	display: flex;
@@ -272,4 +278,11 @@ footer {
 	margin-top: 14px;
 	padding-top: 10px;
 	border-top: 1px solid var(--line);
+}
+footer a {
+	color: var(--accent);
+	text-decoration: none;
+}
+footer a:hover {
+	text-decoration: underline;
 }
