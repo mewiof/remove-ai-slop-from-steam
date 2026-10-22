@@ -1,0 +1,128 @@
+[data-aislop] {
+	--aislop-color: #e5484d;
+}
+[data-aislop-level="2"] {
+	--aislop-color: #f5a524;
+}
+[data-aislop-level="1"] {
+	--aislop-color: #8b949e;
+}
+
+[data-aislop="hide"] {
+	display: none !important;
+}
+[data-aislop-pos] {
+	position: relative !important;
+}
+
+[data-aislop="label"] {
+	outline: 2px solid var(--aislop-color) !important;
+	outline-offset: -2px !important;
+}
+
+[data-aislop="blur"] img,
+[data-aislop="blur"] video,
+[data-aislop="blur"] [style*="background-image"] {
+	filter: blur(12px) saturate(0.4) !important;
+	transition: filter 0.1s;
+}
+[data-aislop="blur"]:hover img,
+[data-aislop="blur"]:hover video,
+[data-aislop="blur"]:hover [style*="background-image"] {
+	filter: none !important;
+}
+
+.aislop-badge {
+	all: initial;
+	position: absolute !important;
+	top: 4px;
+	left: 4px;
+	z-index: 60;
+	display: block;
+	padding: 2px 6px;
+	border-radius: 3px;
+	background: var(--aislop-color, #e5484d);
+	color: #fff;
+	font:
+		700 11px/14px "Motiva Sans",
+		Arial,
+		sans-serif;
+	letter-spacing: 0.03em;
+	text-transform: uppercase;
+	white-space: nowrap;
+	box-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+	cursor: help;
+	pointer-events: auto;
+}
+[data-aislop="tag"] > .aislop-badge {
+	padding: 1px 5px;
+	font-size: 10px;
+	line-height: 13px;
+	opacity: 0.92;
+}
+
+.aislop-cover {
+	all: initial;
+	position: absolute !important;
+	inset: 0;
+	z-index: 60;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 6px;
+	padding: 6px;
+	box-sizing: border-box;
+	overflow: hidden;
+	background: #10141b;
+	border: 1px solid rgba(229, 72, 77, 0.45);
+	color: #8f98a0;
+	font:
+		12px/1.3 "Motiva Sans",
+		Arial,
+		sans-serif;
+	text-align: center;
+	cursor: default;
+}
+.aislop-cover-title {
+	all: initial;
+	color: #c7d5e0;
+	font:
+		600 12px/1.3 "Motiva Sans",
+		Arial,
+		sans-serif;
+	text-align: center;
+}
+.aislop-cover-show {
+	all: initial;
+	padding: 5px 12px;
+	border-radius: 2px;
+	background: #3d4450;
+	color: #fff;
+	font:
+		600 11px/1 "Motiva Sans",
+		Arial,
+		sans-serif;
+	cursor: pointer;
+}
+.aislop-cover-show:hover {
+	background: #4b5463;
+}
+
+html[data-aislop-gate] body {
+	overflow: hidden !important;
+}
+
+html[data-aislop-page="blur"] #gameHeaderImageCtn img,
+html[data-aislop-page="blur"] .game_header_image_full,
+html[data-aislop-page="blur"] .highlight_ctn img,
+html[data-aislop-page="blur"] .highlight_ctn video {
+	filter: blur(14px) saturate(0.4) !important;
+	transition: filter 0.1s;
+}
+html[data-aislop-page="blur"] #gameHeaderImageCtn:hover img,
+html[data-aislop-page="blur"] .game_header_image_full:hover,
+html[data-aislop-page="blur"] .highlight_ctn:hover img,
+html[data-aislop-page="blur"] .highlight_ctn:hover video {
+	filter: none !important;
+}

@@ -1,0 +1,56 @@
+{
+	"manifest_version": 3,
+	"name": "Remove AI Slop from Steam",
+	"short_name": "No Steam AI Slop",
+	"version": "1.0.0",
+	"description": "Hide/blur/label Steam games that disclose AI-generated content.",
+	"homepage_url": "https://github.com/mewiof/remove-ai-slop-from-steam",
+	"icons": {
+		"16": "icons/icon-16.png",
+		"32": "icons/icon-32.png",
+		"48": "icons/icon-48.png",
+		"96": "icons/icon-96.png",
+		"128": "icons/icon-128.png"
+	},
+	"permissions": [
+		"storage"
+	],
+	"host_permissions": [
+		"https://store.steampowered.com/*",
+		"https://api.steampowered.com/*"
+	],
+	"background": {
+		"service_worker": "background.js"
+	},
+	"content_scripts": [
+		{
+			"matches": [
+				"https://store.steampowered.com/*"
+			],
+			"js": [
+				"lib/classify.js",
+				"lib/settings.js",
+				"lib/steam.js",
+				"content/content.js"
+			],
+			"css": [
+				"content/content.css"
+			],
+			"run_at": "document_start"
+		}
+	],
+	"action": {
+		"default_title": "Remove AI Slop from Steam",
+		"default_popup": "settings/settings.html",
+		"default_icon": {
+			"16": "icons/icon-16.png",
+			"24": "icons/icon-24.png",
+			"32": "icons/icon-32.png"
+		}
+	},
+	"options_ui": {
+		"page": "settings/settings.html",
+		"open_in_tab": true
+	},
+	"minimum_chrome_version": "102"
+}
