@@ -18,10 +18,7 @@
 }
 
 body {
-	width: 360px;
-	max-width: 100%;
-	margin: 0 auto;
-	padding: 14px 16px 12px;
+	margin: 0;
 	background: var(--bg);
 	color: var(--text);
 	font:
@@ -29,6 +26,12 @@ body {
 		"Segoe UI",
 		Arial,
 		sans-serif;
+}
+
+#app {
+	width: 360px;
+	margin: 0 auto;
+	padding: 14px 16px 12px;
 }
 
 header {

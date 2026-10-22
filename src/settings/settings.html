@@ -7,100 +7,110 @@
 		<link rel="stylesheet" href="settings.css" />
 	</head>
 	<body>
-		<header>
-			<img src="../icons/icon-48.png" alt="" width="28" height="28" />
-			<h1>Remove AI Slop</h1>
-			<label class="switch" title="Turn the filter on or off">
-				<input type="checkbox" id="enabled" />
-				<span></span>
-			</label>
-		</header>
-
-		<p id="perm" class="warn" hidden>
-			The extension has no access to Steam yet.
-			<button type="button" id="grant">Allow access</button>
-		</p>
-
-		<div id="body">
-			<fieldset>
-				<legend>Catch games that are</legend>
-				<label class="choice">
-					<input type="radio" name="level" value="3" />
-					<span
-						><b>Mostly AI-generated</b
-						><small
-							>AI made most of the art/sound/writing or makes
-							content while you play</small
-						></span
-					>
+		<main id="app">
+			<header>
+				<img src="../icons/icon-48.png" alt="" width="28" height="28" />
+				<h1>Remove AI Slop</h1>
+				<label class="switch" title="Turn the filter on or off">
+					<input type="checkbox" id="enabled" />
+					<span></span>
 				</label>
-				<label class="choice">
-					<input type="radio" name="level" value="2" />
-					<span
-						><b>Partly AI-generated</b
-						><small>Any AI-made content in the game</small></span
-					>
-				</label>
-				<label class="choice">
-					<input type="radio" name="level" value="1" />
-					<span
-						><b>Any AI disclosure</b
-						><small
-							>Also AI used only for code/translation/store
-							art</small
-						></span
-					>
-				</label>
-			</fieldset>
+			</header>
 
-			<fieldset>
-				<legend>Then</legend>
-				<div class="seg">
-					<label
-						><input type="radio" name="action" value="hide" /><span
-							>Hide</span
-						></label
-					>
-					<label
-						><input type="radio" name="action" value="blur" /><span
-							>Blur</span
-						></label
-					>
-					<label
-						><input type="radio" name="action" value="label" /><span
-							>Label</span
-						></label
-					>
-				</div>
-			</fieldset>
-
-			<label class="check" id="lower-row">
-				<input type="checkbox" id="labelLower" />
-				<span id="lower-text">Tag games with some AI content</span>
-			</label>
-			<label class="check" id="counter-row">
-				<input type="checkbox" id="counter" />
-				<span>Show how many games were hidden</span>
-			</label>
-
-			<section>
-				<h2>Always shown</h2>
-				<ul id="allow"></ul>
-				<p id="allow-empty" class="muted">
-					Nothing yet. A hidden game's page has an "Always show this
-					game" button.
-				</p>
-			</section>
-		</div>
-
-		<footer>
-			<p class="muted stats">
-				<span id="stats"></span
-				><button type="button" id="clear" class="link">
-					Clear cache
-				</button>
+			<p id="perm" class="warn" hidden>
+				The extension has no access to Steam yet.
+				<button type="button" id="grant">Allow access</button>
 			</p>
-		</footer>
+
+			<div id="body">
+				<fieldset>
+					<legend>Catch games that are</legend>
+					<label class="choice">
+						<input type="radio" name="level" value="3" />
+						<span
+							><b>Mostly AI-generated</b
+							><small
+								>AI made most of the art/sound/writing or makes
+								content while you play</small
+							></span
+						>
+					</label>
+					<label class="choice">
+						<input type="radio" name="level" value="2" />
+						<span
+							><b>Partly AI-generated</b
+							><small
+								>Any AI-made content in the game</small
+							></span
+						>
+					</label>
+					<label class="choice">
+						<input type="radio" name="level" value="1" />
+						<span
+							><b>Any AI disclosure</b
+							><small
+								>Also AI used only for code/translation/store
+								art</small
+							></span
+						>
+					</label>
+				</fieldset>
+
+				<fieldset>
+					<legend>Then</legend>
+					<div class="seg">
+						<label
+							><input
+								type="radio"
+								name="action"
+								value="hide"
+							/><span>Hide</span></label
+						>
+						<label
+							><input
+								type="radio"
+								name="action"
+								value="blur"
+							/><span>Blur</span></label
+						>
+						<label
+							><input
+								type="radio"
+								name="action"
+								value="label"
+							/><span>Label</span></label
+						>
+					</div>
+				</fieldset>
+
+				<label class="check" id="lower-row">
+					<input type="checkbox" id="labelLower" />
+					<span id="lower-text">Tag games with some AI content</span>
+				</label>
+				<label class="check" id="counter-row">
+					<input type="checkbox" id="counter" />
+					<span>Show how many games were hidden</span>
+				</label>
+
+				<section>
+					<h2>Always shown</h2>
+					<ul id="allow"></ul>
+					<p id="allow-empty" class="muted">
+						Nothing yet. A hidden game's page has an "Always show
+						this game" button.
+					</p>
+				</section>
+			</div>
+
+			<footer>
+				<p class="muted stats">
+					<span id="stats"></span
+					><button type="button" id="clear" class="link">
+						Clear cache
+					</button>
+				</p>
+			</footer>
+		</main>
 
 		<script src="../lib/settings.js"></script>
 		<script src="../lib/steam.js"></script>
