@@ -14,8 +14,8 @@ You can customize what to catch + what happens to those games (hide/blur/label).
 
 ## Install
 
-- Chrome/Edge/Brave/Opera: Chrome Web Store (TODO: you forgor to add the link)
-- Firefox and Firefox for Android: addons.mozilla.org (TODO: you forgor to add the link)
+- Chrome/Edge/Brave/Opera: [Chrome Web Store](https://chromewebstore.google.com/detail/remove-ai-slop-from-steam/kohnglgaianmliikkjpdmaoeibkelbpe)
+- Firefox and Firefox for Android: [addons.mozilla.org](https://addons.mozilla.org/firefox/addon/remove-ai-slop-from-steam/)
 - Steam desktop client: install [Millennium](https://steambrew.app) with the [Extendium](https://github.com/BossSloth/Extendium) plugin. Then add the extension from the Chrome Web Store through Extendium.
     - In the Steam client, change settings with a right-click on the pinned icon > Manage > Extension options. Extendium closes extension popups on the first click ([issue #100](https://github.com/BossSloth/Extendium/issues/100)).
 - From source: see [Build](#build)
